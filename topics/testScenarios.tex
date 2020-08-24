@@ -1,0 +1,389 @@
+\section{Testfälle und Testszenarien}
+\subsection{Testfälle}
+
+
+\subsection{Basis-Testfälle}
+
+\newcolumntype{s}{>{\hsize=.3\hsize}X}
+\newcolumntype{m}{>{\hsize=.9\hsize}X}
+\newcolumntype{b}{>{\hsize=.4\hsize}X}
+\begin{tabularx}{\linewidth}{|s| m| m| m|}
+	\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Ergebnis} &
+	\textbf{Bestanden}\\
+	\hline
+	/T010/ & Die Schnittstelle wird in einem Browser geöffnet & Schnittstelle wird geöffnet & OK \\
+	\hline
+	/T020/ & Laden der \glspl{Cookie} & Ermöglicht das Akzeptieren der \glspl{Cookie} & OK \\
+	\hline
+	/T030/ & Akzeptieren der \glspl{Cookie} & Ermöglicht das Speichern der Nutzereinstellungen & OK \\
+	\hline
+	/T040/ & Laden der Karte beim Erstbesuch & Karte wird geladen & OK \\
+	\hline
+	/T050/ & Laden einer Karte der zuletzt genutzten Umgebung des Benutzers & Karte mit zuletzt genutzter Umgebung wird geladen & Nein, stattdessen wird der Standort des Nutzers geladen \\
+	\hline
+	/T060/ & Anzeigen der \gls{Toolbar} & Zeigt dem Benutzer, dass es mehr Funktionen zum benutzen gibt & OK, hierbei ist die Toolbar direkt in die Navigationsbar integriert\\
+	\hline
+	/T070/ & Aufklappen der \gls{Toolbar} für weiterte Funktionen & Ermöglicht die Wahl zwischen mehr Funktionen & OK \\
+	\hline
+	/T071/ & Seite mit Deutschlandkarte und Schiebebalken für das Anzeigen zeitlicher Entwicklung & Anschauliche Methode um die Entwicklung in ganz Deutschland zu zeigen & OK, statt dem Schiebebalken wurde ein Kalender verwendet \\
+	\hline
+	/T075/ & Benutzbarkeit des Schiebebalken & Ermöglicht es die Karte zu dem gewünschten Zeitpunkt darzustellen & OK , statt dem Schiebebalken wurde ein Kalender verwendet \\
+	\hline
+	/T080/ & Anzeigen der Suchleiste & Ermöglicht es einen bestimmten Standort zu suchen & OK \\
+	\hline
+	/T090/ & Anzeigen einer Kartenlegende & Ermöglicht es einzuschätzen was die Werte bedeuten & OK \\
+	\hline
+	/T100/ & In der Suchleiste wird eine Stadt eingegeben. & Zoomt die Karte an den gesuchten Standort & OK \\
+	\hline
+	/T0110/ & In der Suchleiste wird eine Postleitzahl eingegeben & Zoomt die Karte an den gesuchten Standort &  OK \\
+	\hline
+	/T120/ & Auswahl eines der vier \glspl{Kartenoverlay} & Ermöglicht es zwischen weiteren Overlays zu wählen & OK \\
+	\hline
+	/T130/ & Anzeigen der \glspl{Kartenoverlay} & Erleichtert das Erkennen der spezifischen Daten & OK \\
+	\hline
+	/T140/ & Anzeigen der Daten von mehreren \glspl{Sensor} über die Karte & Zeigt die Daten in der Sidebar an & OK \\
+	\hline
+	/T150/ & Markieren der \glspl{Sensor} im aktuellen Kartenausschnitt & Ermöglicht es nur die Daten anzuzeigen, die den Benutzer interessieren & OK \\
+	\hline 
+	/T155/ & Benutzerdefiniertes auswählen der \glspl{Sensor} & Ermöglicht es nur die Daten anzuzeigen, die den Benutzer interessieren & OK \\
+	\hline
+	/T160/ & Anzeigen der Daten eines Sensors über eine \gls{Sidebar} & Ermöglicht es den Benutzer zu informieren. Zeigt die vier Datensätze an &  OK \\
+	\hline
+	/T170/ & Aufrufen der Zeitdiagramme & Werden in der \gls{Sidebar} dargestellt & OK \\
+	\hline
+	/T180/ & Zoomen auf der Karte & Ermöglicht es genauer \glspl{Sensor} auszuwählen & OK \\
+	\hline
+	/T190/ & Eingabe nicht bekannter Städte/Postleitzahlen in die Suchleiste & Ermöglicht es, dass keine Suchanfragen gestellt werden, die nicht bearbeitet werden können & OK \\
+	\hline
+	/T200/ & Speichern der Nutzerdaten für erneutes Laden der Schnittstelle zu einem anderen Zeitpunkt & Ermöglicht es das der Benutzer beim nächsten Mal nicht erneut einen Standort eingeben muss & Nein, stattdessen wird beim Akzeptieren der Cookies der Standort des Nutzers geladen \\
+	\hline
+	/T210/ & Schließen der \gls{Sensoroverview} & Ermöglicht es wieder den ganzen Kartenausschnitt zu sehen & OK \\
+	\hline
+	/T220/ & Schließen der Schnittstelle & Beendet die Schnittstelle & OK \\
+	\hline
+	/T230/ & Erneutes Laden der Schnittstelle & Lädt die Schnittstelle mithilfe der Cookies erneut & OK \\
+	\hline
+\end{tabularx}
+
+\subsection{Erweiterte-Testfälle}
+\begin{tabularx}{\linewidth}{|s| m| m| m|}
+	\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Ergebnis} &
+	\textbf{Bestanden}\\
+	\hline 
+	/T240/ & Stresstest durch wildes drücken der Tasten & Ermöglicht es uns mögliche Fehler in der Kodierung zu finden & OK\\
+	\hline      
+	/T250/ & Speichern der Nutzerdaten für erneutes Laden der Schnittstelle zu einem anderen Zeitpunkt & Ermöglicht es schneller auf den präferierten Standort zuzugreifen & Nein, stattdessen wird beim Akzeptieren der Cookies der Standort des Nutzers geladen \\
+	\hline  
+	/T260/ & Aufrufen der \GLS{DIY} Anleitungen für \glspl{Sensor} über die \gls{Toolbar} & Ermöglicht es dem Benutzer sich einen eigenen DIY Sensor zu bauen & OK \\
+	\hline
+	/T270/ & (De-)aktivieren des Dark-Mode über die \gls{Toolbar} & Ermöglicht es dem Benutzer die Schnittstelle auch bei schlechten Lichtbedingungen zu benutzen & Nein, wurde nicht implementiert \\
+	\hline
+	/T280/ & Änderung der Sprach-Einstellung über die \gls{Toolbar} & Ermöglicht es dem Benutzer die Schnittstelle auch bei schlechten Deutschkenntinssen zu benutzen & OK \\
+	\hline
+	/T290/ & (De-)aktivieren des Expertenmodi & Ermöglicht es dem Benutzer sich spezifischer zu informieren & OK \\
+	\hline
+	/T300/ & Anzeigen \glslink{Interpolation}{interpolierter} Daten & Ermöglicht es auch Daten zu bekommen, die zwischen mehreren Sensoren liegen & OK \\
+	\hline
+	/T310/ & Anzeigen von allgemeinen Informationen zu \glspl{Schadstoffwert}n und Gesundheitsrisiken & Ermöglicht es die Benutzer über die Werte zu informieren & OK \\
+	\hline
+	/T320/ & Hilfefunktion in der \gls{Toolbar}, die die unterschiedlichen Funktionen erklärt & Ermöglicht es Benutzern, die Probleme mit der Schnittstelle haben, leichter mit dieser umzugehen & OK \\
+	\hline
+	/T330/ & Zugriff der Schnittstelle über \gls{Standard-PC} als auch über Handys & Ermöglicht es dem Benutzer auf die Schnittstelle über unterschiedliche Endgeräte zuzugreifen & OK \\
+	\hline 
+\end{tabularx}
+
+
+\subsection{Testszenarien}
+Die Testszenarien beinhalten die obigen Testfälle. 
+\textbf{Testszenario 1: Normaler Aufruf}
+\newline
+Ein unerfahrener Benutzer startet die Schnittstelle und möchte die aktuellen \gls{Feinstaub}daten seines aktuellen Standortes erfahren. Das gelingt ihm auch.
+\begin{tabularx}{\linewidth}{|s| m| m|}
+		\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Bestanden}\\
+	\hline
+	/T010/ & Starten der Schnittstelle & OK \\
+	\hline
+	/T040/ & Laden der Deutschlandkarte & OK \\
+	\hline
+	/T020/ & Laden der \glspl{Cookie} & OK \\
+	\hline
+	/T030/ & Akzeptieren der \glspl{Cookie} & OK \\
+	\hline
+	/T070/ & Aufklappen der \gls{Toolbar} & OK, hierbei ist die Toolbar direkt in die Navigationsbar integriert\\
+	\hline
+	/T120/ & Auswahl des \gls{Feinstaub}-Overlays in der \gls{Toolbar} & OK, realisiert durch die Auswahl des Buttons "Feinstaub" in der Navigationbar\\
+	\hline
+	/T130/ & Anzeigen des Overlays auf der Karte & OK \\
+	\hline
+	/T180/ & Zoomen auf der Karte & OK \\
+	\hline
+	/T140/ & Auswahl der \glspl{Sensor} & OK \\
+	\hline
+	/T160/ & Daten zu diesen \glspl{Sensor} werden angezeigt & OK \\
+	\hline
+	/T210/ & Schließen der Sensordaten & OK \\
+	\hline
+	/T220/ & Schließen er Schnittstelle & OK \\
+	\hline
+\end{tabularx}
+
+\textbf{Testszenario 2: Erfahrener Nutzer (Experte)}
+\newline
+Ein Benutzer der sich mit \glspl{Sensor} etc. auskennt besucht die Schnittstelle und informiert sich über den Expertenmodus zu den \glspl{Sensor} in Stadt A weiter.
+\begin{tabularx}{\linewidth}{|s| m| m|}
+	\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Bestanden}\\
+	\hline
+	/T230/ & Erneutes Laden der Schnittstelle & OK \\
+	\hline
+	/T050/ & Laden der Karte mit dem gespeicherten Standort & Nein, stattdessen wird der aktuelle Standort des Nutzers geladen \\
+	\hline
+	/T100/ & Stadt A in Suchleiste eingegeben & OK \\
+	\hline
+	/T070/ & \gls{Toolbar} wird aufgeklappt & OK, realisiert durch die Auswahl des Navigationbarelements "Weiterte Funktionen"\\
+	\hline
+	/T290/ & Auswahl des Expertenmodus über die \gls{Toolbar} & OK \\
+	\hline
+	/T070/ & \gls{Toolbar} wird zugeklappt & OK, realisiert durch das Schließen des Navigationbarelements "Weiterte Funktionen" \\
+	\hline
+	/T150/ & Auswahl eines Sensors & OK \\
+	\hline
+	/T160/ & Daten zu diesem Sensor werden angezeigt & OK \\
+	\hline
+	/T210/ & Schließen der Sensordaten & OK \\
+	\hline
+	/T220/ & Schließen der Schnittstelle & OK \\
+	\hline
+\end{tabularx}
+
+\textbf{Testszenario 3: Mehrsprachig}
+\newline
+Ein Benutzer möchte die Schnittstelle auf Englisch angezeigt bekommen. Nach erfolgreicher Änderung wird mit Testszenario 1 weitergemacht.
+\begin{tabularx}{\linewidth}{|s| m| m|}
+	\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Bestanden}\\
+	\hline
+	/T230/ & Erneutes starten der Schnittstelle & OK \\
+	\hline
+	/T050/ & Laden der Karte mit dem gespeicherten Standort & Nein, stattdessen wird der aktuelle Standort des Nutzers geladen \\
+	\hline
+	/T070/ & \gls{Toolbar} wird aufgeklappt & Nicht benötigt, da die Spracheinstellungen als Buttons auf der Navigationsbar realisiert wurden \\
+	\hline
+	/T280/ & Änderung der Spracheinstellung & OK \\
+	\hline
+\end{tabularx}
+
+\textbf{Testszenario 4: Eingabe einer nichtzulässigen Postleitzahl}
+\newline
+Der Benutzer gibt bei seiner Suche eine Postleitzahl ein, die so in Deutschland nicht existiert. Nachdem dieser darüber informiert wurde gibt er eine zulässige Postleitzahl ein.
+\begin{tabularx}{\linewidth}{|s| m| m|}
+	\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Bestanden}\\
+	\hline
+	/T230/ & Erneutes starten der Schnittstelle & OK \\
+	\hline
+	/T050/ & Laden der Karte mit dem gespeicherten Standort & Nein, stattdessen wird der aktuelle Standort des Nutzers geladen \\
+	\hline
+	/T110/ & Postleitzahl in Suchleiste eingegeben & OK \\
+	\hline
+	/T190/ & Fehlermeldung und Aufforderung zur Eingabe einer gültigen Postleitzahl & OK \\
+	\hline
+	/T110/ & Eingabe einer gültigen Postleitzahl & OK \\
+	\hline
+\end{tabularx}
+
+\textbf{Testszenario 5: Historische Daten}
+\newline
+Ein erfahrener Benutzer möchte auf die historischen Daten ,in Form eines Zeitdiagramms, seines aktuellen Standortes zugreifen.
+\begin{tabularx}{\linewidth}{|s| m| m|}
+	\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Bestanden}\\
+	\hline
+	/T010/ & Starten der Schnittstelle & OK \\
+	\hline
+	/T030/ & Laden der Karte mit dem gespeicherten Standort & Nein, stattdessen wird der aktuelle Standort des Nutzers geladen \\
+	\hline
+	/T040/ & Aktuellen Standort in Suchleiste eingegeben & OK \\
+	\hline
+	/T150/ & Auswahl der für den Benutzer interessanten \glspl{Sensor} & OK \\
+	\hline
+	/T170/ & Im Sensordatenfenster den gewünschten Zeitraum auswählen & Nein, wurde nicht realisiert \\
+	\hline
+	/T220/ & Schnittstelle schließen & OK \\
+	\hline
+\end{tabularx}
+
+\textbf{Testszenario 6: Dark-Mode}
+\newline
+Ein Benutzer möchte den Dark-Mode aktivieren. Nach erfolgreicher Änderung wird mit Testszenario 1 weitergemacht.
+\begin{tabularx}{\linewidth}{|s| m| m|}
+	\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Bestanden}\\
+	\hline
+	/T230/ & Erneutes starten der Schnittstelle & OK \\
+	\hline
+	/T200/ & Laden des zuletzt genutzten Standortes & Nein, stattdessen wird der aktuelle Standort des Nutzers geladen \\
+	\hline
+	/T070/ & Aufklappen der \gls{Toolbar} & OK, hierbei ist die Toolbar direkt in die Navigationsbar integriert\\
+	\hline
+	/T270/ & Änderung zum Dark-Mode & Nein, wurde nicht realisiert \\
+	\hline
+\end{tabularx}
+
+\textbf{Testszenario 7: \gls{DIY}-\gls{Sensor}}
+\newline
+Ein Benutzer hat Interesse an einem \gls{DIY}-\gls{Sensor}.
+\begin{tabularx}{\linewidth}{|s| m| m|}
+	\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Bestanden}\\
+	\hline
+	/T230/ & Erneutes Starten der Schnittstelle & OK \\
+	\hline
+	/T050/ & Laden der Karte der Umgebung des Nutzers & OK \\
+	\hline
+	/T070/ & Aufklappen der \gls{Toolbar} & OK, realisiert durch die Auswahl des Navigationbarelements "Weiterte Funktionen" \\
+	\hline
+	/T260/ & Öffnen der Anleitung & OK \\
+	\hline
+	/T220/ & Schließen der Schnittstelle & OK \\
+	\hline
+\end{tabularx}
+
+\textbf{Testszenario 8: Wechseln von Sensor A zu Sensor B}
+\newline
+Ein Benutzer will bei seinem Besuch der Schnittstelle zwischen den Unterschiedlichen \glspl{Sensor} herumschalten. 
+\begin{tabularx}{\linewidth}{|s| m| m|}
+	\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Bestanden}\\
+	\hline
+	/T230/ & Starten der Schnittstelle & OK \\
+	\hline
+	/T050/ & Laden der Karte mit dem zuletzt genutzten Standort des Nutzers & Nein, stattdessen wird der aktuelle Standort des Nutzers geladen \\
+	\hline
+	/T040/ & Aktueller Standort wird in die Suchleiste eingegeben & OK \\
+	\hline
+	/T155/ & Nutzer wählt manuell einen Sensor aus & OK \\
+	\hline
+	/T155/ & Nutzer wählt mehrere \glspl{Sensor} aus & OK \\
+	\hline
+\end{tabularx}
+
+\textbf{Testszenario 9: Anzeigen der Daten mehrerer \glspl{Sensor}}
+\newline
+Ein Benutzer, der die Seite bereits besucht hat, möchte die Durchschnittswerte aller ausgewählten \glspl{Sensor} für seinen aktuellen Standort sehen.
+\begin{tabularx}{\linewidth}{|s| m| m|}
+	\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Bestanden}\\
+	\hline
+	/T230/ & Starten der Schnittstelle & OK \\
+	\hline
+	/T050/ & Laden der Karte mit dem zuletzt genutzten Standort des Nutzers & Nein, stattdessen wird der aktuelle Standort des Nutzers geladen \\
+	\hline
+	/T040/ & Aktueller Standort wird in die Suchleiste eingegeben & OK \\
+	\hline
+	/T150/ & \glspl{Sensor} werden markiert & OK \\
+	\hline
+	/T120/ & Auswahl des Interpolations-Overlays in der \gls{Toolbar} & OK, realisiert durch die Auswahl des Navigationbarelements "Ansichten" und die anschließende Auswahl des Interpolations-Overlays \\
+	\hline
+	/T300/ & Anzeigen der \glslink{Interpolation}{interpolierten} Daten & OK \\
+	\hline
+\end{tabularx}
+
+\textbf{Testszenario 10: Gesundheitsrisiken}
+\newline
+Ein Benutzer, der die Seite bereits besucht hat, möchte sich über mögliche Gesundheitsrisiken an seinem Standort und allgemeine Gesundheitsrisiken informieren.
+\begin{tabularx}{\linewidth}{|s| m| m|}
+	\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Bestanden}\\
+	\hline
+	/T230/ & Starten der Schnittstelle & OK \\
+	\hline
+	/T050/ & Laden der Karte mit dem zuletzt genutzten Standort des Nutzers & Nein, stattdessen wird der aktuelle Standort des Nutzers geladen \\
+	\hline
+	/T040/ & Aktueller Standort wird in die Suchleiste eingegeben & OK \\
+	\hline
+	/T150/ & \glspl{Sensor} werden markiert & OK \\
+	\hline
+	/T310/ & Anzeigen der Gesundheitsrisiken für die gewünschte Umgebung & Nein, wurde nicht realisiert \\
+	\hline
+	/T070/ & Aufklappen der \gls{Toolbar} & OK, realisiert durch die Auswahl des Navigationbarelements "Weitere Funktionen" \\
+	\hline
+	/T310/ & Laden einer Seite mit allgemeinen Erklärungen zu den Gesundheitsrisiken & OK, realisiert durch die Auswahl des Navigationbarelements "Weitere Funktionen" und die anschließende Auswahl des Elements "Folgen von Luftverschmutzung" \\
+	\hline
+	/T220/ & Schließen der Schnittstelle & OK \\
+	\hline
+\end{tabularx}
+
+\textbf{Testszenario 11: Zeitliche Entwicklung}
+\newline
+Ein Benutzer, der die Seite bereits besucht hat, möchte sich über die zeitliche Entwicklung der Messwerte informieren
+\begin{tabularx}{\linewidth}{|s| m| m|}
+	\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Bestanden}\\
+	\hline
+	/T230/ & Starten der Schnittstelle & OK \\
+	\hline
+	/T050/ & Laden der Karte mit dem zuletzt genutzten Standort des Nutzers & Nein, stattdessen wird der aktuelle Standort des Nutzers geladen \\
+	\hline
+	/T040/ & Aktueller Standort wird in die Suchleiste eingegeben & OK \\
+	\hline
+	/T070/ & Aufklappen der \gls{Toolbar} & OK, realisiert durch die Auswahl des Navigationbarelements "Weitere Funktionen" \\
+	\hline
+	/T071/ & Laden einer Seite mit einer Karte und mit einem Schiebebalken & Nein, stattdessen wird ein Kalender geladen \\
+	\hline
+	/T075/ & Benutzen des Schiebebalken um unterschiedliche Werte in der Vergangenheit darzustellen & OK, realisiert durch die Auswahl eines Datums im Kalender \\
+	\hline
+	/T220/ & Schließen der Schnittstelle & OK \\
+	\hline
+\end{tabularx}
+
+\textbf{Testszenario 12: Zugriff über Smartphone}
+\newline
+Ein Benutzer, der die Seite bereits besucht hat, möchte erneut über sein Smartphone zugreifen und sich über weitere Optionen mittles der Hilfefunktion erkundigen
+\begin{tabularx}{\linewidth}{|s| m| m|}
+	\hline
+	\textbf{Nr.} & 
+	\textbf{Beschreibung} &
+	\textbf{Bestanden}\\
+	\hline
+	/T330/ & Starten der Schnittstelle mittels eines Smartphones & OK \\
+	\hline
+	/T050/ & Laden der Karte mit dem zuletzt genutzten Standort des Nutzers & Nein, stattdessen wird der aktuelle Standort des Nutzers geladen \\
+	\hline
+	/T320/ & Öffnen der Hilfefunktion & OK, realisiert durch verschiedene Hilfe-Buttons, die auf der Webanwendung verteilt sind \\
+	\hline
+\end{tabularx}
+
+\subsubsection{Zusammenfassung}
+Zusammenfassend lässt sich sagen, dass die in der Pflichtenheft-Phase verfassten Testfälle und Szenarien in großen Teilen erfüllt wurden. Während der Implementierung wurden jedoch einige Elemente der GUI anders platziert. Darunter fallen die Elemente \gls{Toolbar}, Kalender, die Spracheinstellungen und die \glspl{Kartenoverlay}. Gründe hierfür waren unter anderem das Design, die einfachere Implementierung und eine verständlichere Bedienung.
+Die \glspl{Cookie} wurden ebenfalls anders implementiert als zunächst geplant. Statt den letzten besuchten Kartenausschnitt des Nutzers zu laden wird beim Akzeptieren der \glspl{Cookie} der aktuelle Standort des Nutzers geladen. Dies wurde geändert da es uns wichtig erscheint, dass der Nutzer sich beim Betreten der Webanwendung sofort über seine direkte Umgebung informieren kann.
+Tests zu diesen veränderten Funktionalitäten sind daher mit einer weiterführenden Erklärung versehen.
