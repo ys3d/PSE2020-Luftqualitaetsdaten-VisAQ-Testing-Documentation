@@ -1,0 +1,38 @@
+\section{Fehlerbeschreibungen und Optimierungen}
+In diesem Abschnitt werden die Korrekturen von Fehlern und Optimierungen während der Qualitätssicherungsphase beschrieben. Hierzu erfolgt zuerst eine Beschreibung des Fehlers bzw. des zu optimierenden Zustands der Webanwendung. Betrachtet wird dabei der Zustand der Webanwendung direkt nach der Implementierungsphase. Es folgt eine Beschreibung wie der Fehler gelöst wurde.
+
+\subsection{Frontend}
+\begin{itemize}
+	\item \textbf{Öffnen der Diagramme}
+	\\
+	\textbf{Fehler:} Einige Testpersonen hatten Schwierigkeiten die Diagramme zu den Sensordaten zu finden.
+	\\
+	\textbf{Lösung:} Die Lösung war das Hinzufügen von Pfeile in der \gls{Sensoroverview}, die dem Nutzer suggerieren, dass sich etwas öffnet, wenn man es anklickt. Dies wurde in CSS umgesetzt.
+	\item \textbf{Auswählen des Luftqualitätswerts}
+	\\
+	\textbf{Fehler:} Das ausgewählte \gls{Luftqualitaetsdatum} war nicht zu erkennen, demnach wusste der Nutzer nicht welche Sensordaten gerade auf der Karte dargestellt werden.
+	\\
+	\textbf{Lösung:} Das ausqegewählte \gls{Luftqualitaetsdatum} wird blau eingefärbt solange es ausgewählt ist. Dies wurde in CSS umgesetzt.
+	\item \textbf{Abfrage der Interpolationsdaten}
+	\\
+	\textbf{Fehler:} Die Daten für die Interpolation wurden bei jeder Kartenbewegung abgefragt. Das erzeugte eine große Last auf das VisAQ Backend sowie auf die Datenbank.
+	\\
+	\textbf{Lösung:} Das Raster in dem die Interpolationsdaten gespeichert werden wird im Frontend gecached. Dies erfolgt in einem ähnlichem Schema wie die das Caching der Sensordaten. Die Landkarte wurde in gleichförmige Zellen unterteilt. Mit den Koordinaten der Zelle werden die entsprechenden Daten aus dem Backend angefragt. Die empfangenen Daten aus dem Backend werden in einem Array bestehend aus dem Model PointDatum gespeichert. Dieses wird zusammen mit dem abgefragten \gls{Luftqualitaetsdatum}, der abgefragten Zeit und den Zellkoordinaten gecached.
+	\item \textbf{Wechsel zwischen den Overlays}
+	\\
+	\textbf{Fehler:} Zum Wechsel zwischen den \glspl{Kartenoverlay} wurde ein von \gls{Leaflet} angebotenes Feature verwendet. Dieses war rechts oben auf der Karte lokalisiert und fügte sich nicht optimal ins Design der Webanwendung ein.
+	\\
+	\textbf{Lösung:} Das Wechseln der \glspl{Kartenoverlay} wird durch einen Navbardropdown gesteuert. Dieses ist für den Nutzer einfacher zu finden. Dies wurde mit \gls{Bootstrap} umgesetzt.
+	\item \textbf{Location Cookie}
+	\\
+	\textbf{Fehler:} Der akzeptierte Location Cookie zentrierte mehrmals während der Benutzung der Webanwendung auf den Standort des Nutzers und nicht wie gewollt nur einmalig beim Starten der Webanwendung.
+	\\
+	\textbf{Lösung:} Dieser Cookie wurde durch einen Button ersetzt, der wenn er geklickt wird auf den Standort des Nutzers zentriert. Dies wurde mit dem interface Geolocation (https://developer.mozilla.org/en-US/docs/Web/API/Geolocation) umgesetzt.
+	\item \textbf{Gründe für Feinstaub und Folgen für Luftverschmutzung}
+	\\
+	\textbf{Fehler:} Die Texte zu Gr\"unde f\"ur Feinstaub und Folgen für Luftverschmutzung waren relativ kurz.
+	\\
+	\textbf{Lösung:} Die Texte sind nun länger und enthalten Graphiken.	
+\end{itemize}
+\subsection{Backend}
+Das Backend enthielt nach der Implementierungsphase keine Fehler.
