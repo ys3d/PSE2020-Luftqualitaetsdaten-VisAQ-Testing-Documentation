@@ -12,7 +12,7 @@ In diesem Abschnitt werden die Korrekturen von Fehlern und Optimierungen währen
 	\\
 	\textbf{Fehler:} Das ausgewählte \gls{Luftqualitaetsdatum} war nicht zu erkennen, demnach wusste der Nutzer nicht welche Sensordaten gerade auf der Karte dargestellt werden.
 	\\
-	\textbf{Lösung:} Das ausqegewählte \gls{Luftqualitaetsdatum} wird blau eingefärbt solange es ausgewählt ist. Dies wurde in CSS umgesetzt.
+	\textbf{Lösung:} Das ausgewählte \gls{Luftqualitaetsdatum} wird eingefärbt solange es ausgewählt ist. Dies wurde in CSS umgesetzt.
 	\item \textbf{Abfrage der Interpolationsdaten}
 	\\
 	\textbf{Fehler:} Die Daten für die Interpolation wurden bei jeder Kartenbewegung abgefragt. Das erzeugte eine große Last auf das VisAQ Backend sowie auf die Datenbank.
@@ -27,7 +27,7 @@ In diesem Abschnitt werden die Korrekturen von Fehlern und Optimierungen währen
 	\\
 	\textbf{Fehler:} Der akzeptierte Location Cookie zentrierte mehrmals während der Benutzung der Webanwendung auf den Standort des Nutzers und nicht wie gewollt nur einmalig beim Starten der Webanwendung.
 	\\
-	\textbf{Lösung:} Dieser Cookie wurde durch einen Button ersetzt, der wenn er geklickt wird auf den Standort des Nutzers zentriert. Dies wurde mit dem interface Geolocation \url{https://developer.mozilla.org/en-US/docs/Web/API/Geolocation} umgesetzt.
+	\textbf{Lösung:} Dieser Cookie wurde durch einen Button ersetzt, der wenn er geklickt wird auf den Standort des Nutzers zentriert. Dies wurde mit dem Interface Geolocation \url{https://developer.mozilla.org/en-US/docs/Web/API/Geolocation} umgesetzt.
 	\item \textbf{Gründe für Feinstaub und Folgen für Luftverschmutzung}
 	\\
 	\textbf{Fehler:} Die Texte zu Gr\"unde f\"ur Feinstaub und Folgen für Luftverschmutzung waren relativ kurz.
