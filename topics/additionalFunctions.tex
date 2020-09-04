@@ -7,12 +7,12 @@
 	\textbf{Was:} Die Webanwendung verfügt nun über einen historischen Modus. Dieser ermöglicht es Sensordaten von einem beliebigen Zeitpunkt auf der Karte anzuzeigen. Die Auswahl des Zeitpunkts erfolgt über einen Kalender, auf den über das Navbardropdown \enquote{Weitere Funktionen} zugegriffen werden kann.
 	\\ 
 	\textbf{Wie:} Für den Kalender wurde der react-calendar verwendet. Die Implementierung ist in der Klasse TimeQuery. Zudem wurde der Code um die Variable \enquote{time} ergänzt. Die POST Requests an das Backend wurden um die Zeit ergänzt. Auch die gespeicherten Zellen (zum Datencaching) enthalten die Variable \enquote{time}, somit müssen Sensordaten zu einem Zeitpunkt nur einmal abgefragt werden.
-	\item \textbf{Hilfe Funktion}
+	\item \textbf{Hilfefunktion}
 	\\
 	\textbf{Was:} Um Nutzern den Umgang mit der Webanwendung zu erleichtern, wurde die Hilfefunktion eingeführt. Diese umfasst kurze Texte, die die verschiedenen Funktionen erklären. 
 	\\
 	\textbf{Wie:} Umgesetzt wird die Hilfefunktion mit Modal von \gls{Bootstrap}. Die Implementierung findet in der Klasse Help statt.
-	\item \textbf{Lokations Cookie}
+	\item \textbf{Locations-Cookie}
 	\\
 	\textbf{Was:} Der Kartenausschnitt, den der Nutzer vor dem Verlassen der Webanwendung zuletzt geöffnet hat, wird beim erneuten Öffnen der Webanwendung geladen.
 	\\
