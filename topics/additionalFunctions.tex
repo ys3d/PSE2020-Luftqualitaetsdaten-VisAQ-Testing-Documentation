@@ -1,0 +1,43 @@
+\section{Hinzugefügte Funktionalitäten}
+
+\subsection{Frontend}
+\begin{itemize}
+	\item \textbf{Zeitabfrage}
+	\\
+	\textbf{Was:} Die Webanwendung verfügt nun über einen historischen Modus. Dieser ermöglicht es Sensordaten von einem beliebigen Zeitpunkt auf der Karte anzuzeigen. Die Auswahl des Zeitpunkts erfolgt über einen Kalender, auf den über das Navbardropdown Weitere Funktionen zugegriffen werden kann.
+	\\ 
+	\textbf{Wie:} Für den Kalender wurde der react-calendar verwendet. Die Implementierung ist in der Klasse TimeQuery. Zudem wurde der Code um die Variable time ergänzt. Die POST Requests an das Backend wurden um die Zeit ergänzt. Auch die gespeicherten Zellen (zum Datencaching) enthalten die Variable time, somit müssen Sensordaten zu einem Zeitpunkt nur einmal abgefragt werden.
+	\item \textbf{Hilfe Funktion}
+	\\
+	\textbf{Was:} Um Nutzern den Umgang mit der Webanwendung zu erleichtern wurde die Hilfefunktion eingeführt. Diese umfasst kurze Texte, die die verschiedenen Funktionen erklären. 
+	\\
+	\textbf{Wie:} Umgesetzt wird die Hilfefunktion mit Modal von \gls{Bootstrap}. Die Implementierung findet in der Klasse Help statt.
+	\item \textbf{Lokations Cookie}
+	\\
+	\textbf{Was:} Der Kartenausschnitt, den der Nutzer vor dem Verlassen der Webanwendung zuletzt geöffnet hat, wird beim erneuten Öffnen der Webanwendung geladen.
+	\\
+	\textbf{Wie:} Für die Implementierung wird js-cookie verwendet. Das Laden des Kartenausschnitts erfolgt in der Klasse MapView.
+	\item \textbf{Dark Mode}
+	\\
+	\textbf{Was:} Der Dark Mode ermöglicht das Betrachten der Webanwendung in einem dunklen Farbschema.
+	\\
+	\textbf{Wie:} Die Implementierung erfolgt mit der Klasse Theme nach dem Singelton Entwurfsmuster und mit CSS Variablen. Die Auswahl des Farbmodus ist wird durch einen Navbardropdown mit \gls{Bootstrap} realisiert.
+	\item \textbf{Farbenblind Modus} 
+	\\
+	\textbf{Was:} Die Farbenblindmodi stellen die Sensordaten auf der Karte in einem Farbschema dar, das für Menschen mit Farbenblindheit gut erkennbar sind. Dabei werden Farbschemata für Deuteranopie, Protanopie, Tritanopie und Monochromatie angeboten.
+	\\
+	\textbf{Wie:} Die Implementierung erfolgt in der Klasse Gradient. Die Auswahl der Farbenblindmodi ist wird durch einen Navbardropdown mit \gls{Bootstrap} realisiert.
+\end{itemize}
+\subsection{Backend}
+\begin{itemize}
+	\item \textbf{BarnesInterpolation}
+	\\
+	\textbf{Was:} Um die Sensordaten interpoliert auf der Karte darzustellen wurde statt der Nearest-Neighbor Interpolation die Barnes Interpolation eingeführt. Diese interpoliert Sensordaten realistischer.
+	\\
+	\textbf{Wie:} Die BarnesInterpolation wird in der Klasse DefaultInterpolation unter Verwendung der Java Bibliothek GeoTools implementiert. 
+	\item \textbf{Multithreading}
+	\\
+	\textbf{Was:} Multithreading wurde eingeführt um Anfragen an das Backend zu optimieren.
+	\\
+	\textbf{Wie:} Das Multithreading findet in der Klasse ObservationController statt. Die Java Util Bibliothek wird verwendet. Bei jeder Anfrage an den Observation Controller startet ein neuer Thread.
+\end{itemize}
