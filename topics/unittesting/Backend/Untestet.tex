@@ -37,8 +37,8 @@ try {
 \textbf{Ungetestet: 1 Zeile}
 \\
 Eine Version der getAll-Funktion mit Parametern im ObservationController verwendet Multithreading, um die Laufzeit der Operation zu verbessern, da diese oft aufgerufen wird und verhältnismäßig zeitintensiv ist.
-Für den Fall das ein Thread erheblich gestört wird hier ein Timeout von 30 Sekunden gesetzt. Im Falle eines Timeouts wird ein serverinterner Fehler von Spring ausgelöst.
-Die Fehlerauslösung wird nicht von den testfällen abgedeckt.
+Für den Fall das ein Thread erheblich gestört wird, wird hier ein Timeout von 30 Sekunden gesetzt. Im Falle eines Timeouts wird ein serverinterner Fehler von Spring ausgelöst.
+Die Fehlerauslösung wird nicht von den Testfällen abgedeckt.
 
 \paragraph{DefaultInterpolation}
 \begin{lstlisting}[style=customjava]
@@ -52,9 +52,9 @@ bsi.setPassCount(1);
 \end{lstlisting}
 \textbf{Ungetestet: 4 Mutant}
 \\
-Pitest prüft bei Aufrufen von Funktionen ohne Rückgabewert ob ein Entfernen der Funktionsaufrufe zu Fehlern führt.
+Pitest prüft beim Aufrufen von Funktionen ohne Rückgabewert, ob ein Entfernen der Funktionsaufrufe zu Fehlern führt.
 Bei 4 der Konfigurationsaufrufe an die Interpolations-Bibliothek wird dieser Mutant nicht abgedeckt.
-Um die Aufrufe zu testen benötigt man Powermock\footnote{Siehe \url{https://de.wikipedia.org/wiki/PowerMock}} um den Konstruktor der Interpolationsklasse zu mocken, jedoch ist Powermock noch nicht mit Junit 5 kompatibel.
+Um die Aufrufe zu testen benötigt man Powermock\footnote{Siehe \url{https://de.wikipedia.org/wiki/PowerMock}}, um den Konstruktor der Interpolationsklasse zu mocken, jedoch ist Powermock noch nicht mit Junit 5 kompatibel.
 
 \paragraph{GridTransform}
 \begin{lstlisting}[style=customjava]
@@ -68,12 +68,12 @@ public double transformX(int i) {
 \textbf{Ungetestet: 2 Mutant}
 \\
 In der Klasse GridTransform sind 2 Mutanten ungetestet.
-Hierbei Handelt es sich um den Mutanten, der \textit{if (i >= xcoord - 1)} zu \textit{if (i > xcoord - 1)} verändert.
-Dieser Mutant kann nicht getestet werden, da der Effekt durch das zweite return-Statement aufgehoben wird.
-Der selbe Mutant kommt ebenfalls in der Funktion \textit{public double transformY(int j)} vor
+Hierbei handelt es sich um den Mutanten, der \textit{if (i >= xcoord - 1)} zu \textit{if (i > xcoord - 1)} verändert.
+Dieser Mutant kann nicht getestet werden, da der Effekt durch das zweite Return-Statement aufgehoben wird.
+Der selbe Mutant kommt ebenfalls in der Funktion \textit{public double transformY(int j)} vor.
 
 \paragraph{NearestNeighborInterpolation}
 \mbox{}\\
 \textbf{Ungetestet: 1 Zeile 6 Mutant}
 \\
-Zum Teil können diese Nicht getestet werden, zum Teil wurden aber auch keine weiteren Tests mehr geschrieben, da die NearestNeighborInterpolation nichtmehr aktiv verwendet wird.
+Zum Teil können diese nicht getestet werden, zum Teil wurden aber auch keine weiteren Tests mehr geschrieben, da die NearestNeighborInterpolation nichtmehr aktiv verwendet wird.
