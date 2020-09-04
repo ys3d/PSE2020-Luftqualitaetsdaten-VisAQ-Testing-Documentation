@@ -1,4 +1,41 @@
 \subsection{Frontend}
-Im Frontend wurde nichts gegenüber den Tests der Implementierungsphase verändert.
-Weiterhin wird hier lediglich der Rest-Controller getestet.
-Der Restcontroller ist der einzige Controller und auch die einzige Programmlogik, die keine Anzeigelogik rendert.
+Bei den Komponententests des Frontends wurde der Fokus auf den Bereich der Controller und des Models gelegt.
+Zudem wurden auch einige Komponenten der View getestet.
+
+Der einzige Controller im Frontend ist der Request-Controller
+Bereits in der Implementierungsphase wurde ein grundlegender Test für den Request-Controller entwickelt.
+Dieser Test wurde so erweitert das er nun beinahe alle möglichen Fälle des Request-Controllers umfasst.
+Der einzige nicht getestete Fall ist die Wahl des Debugging-Modus.
+Im Debugging-Modus wird durch den Request-Controller auf ein Backend mit der Adresse http://localhost:8080 zugegriffen, dies wird nicht getestet, da nicht immer gewährleistet werden kann das auf dem Testsystem gleichzeitig ein entsprechendes Backend aktiv ist.
+
+Die Komponententests im Model wurden erst in der Testphase ergänzt.
+Die Tests decken 100\% des Programmcodes ab.
+Alle Modelle des Frontends wurden nach dem gleichen Schema getestet.
+Beispielhaft sieht ein Test folgendermassen aus:
+\begin{lstlisting}[style=customjs]
+test("HistoricalLocation Parse", () => {
+    const hl = new HistoricalLocation([...]);
+
+    expect(hl.time).toBe('2019-07-02T15:23:53.749Z');
+    expect(hl.thingLink.url).toBe("https://api.smartaq.net/v1.0/HistoricalLocations('66c68826-9cdd-11e9-a024-ffbd2647ca86')/Thing");
+    expect(hl.locationsLink.url).toBe("https://api.smartaq.net/v1.0/HistoricalLocations('66c68826-9cdd-11e9-a024-ffbd2647ca86')/Locations");
+
+    const hl2 = new HistoricalLocation(hl.toJSON());
+    expect(hl2).not.toBe(undefined);
+    expect(hl2.time).toBe(hl.time);
+    expect(hl2.thingLink.url).toBe(hl.thingLink.url);
+    expect(hl2.locationsLink.url).toBe(hl.locationsLink.url);
+});
+\end{lstlisting}
+Bei [...] steht ein HistoricalLocation-Objekt im \gls{JSON}-Format wie es vom Backend geliefert wird.
+\\
+Der Test prüft zuerst ob eine HistoricalLocation-Instanz korrekt aus dem \gls{JSON}-Format gelesen wird.
+Anschließend wird die \textit{toJSON()}-Funktion aufgerufen und aus dem entstandenen JSON-Objekt wieder eine HistoricalLocation-Instanz erstellt.
+Diese entstandene Instanz wird dann auf die Übereinstimmung mit der ersten Instanz überprüft.
+
+Im View-Teil des Frontends wurden nicht alle Komponenten mit automatisierten Tests erfasst.
+Die tatsächlich anzeigenden Komponenten wurden durch die Nutzertests und die Benutzung durch das Entwicklerteam getestet.
+Im View-Teil befinden sich zusätzlich einige Singletons die zur Zustandsverwaltung der Anzeige dienen.
+Diese und ihre Interaktion mit den Cookies wurde mit einer überdeckung von 100\% getestet.
+\\
+Die rein anzeigenden Komponenten der View wurden nicht mit Komponententests überdeckt. 
