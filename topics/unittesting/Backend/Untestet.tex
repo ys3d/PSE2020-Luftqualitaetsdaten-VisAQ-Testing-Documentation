@@ -1,0 +1,79 @@
+\subsubsection{Nicht getestete Code-Teile}
+Im Testbericht des Backends werden 4 Zeilen Code und 16 Mutanten als nicht getestet gekennzeichnet.
+Hierzu sollen nun kurz die Gründe für die fehlende Überdeckung geschildert werden.
+
+\paragraph{DatastreamController}
+\begin{lstlisting}[style=customjava]
+@Override
+public ArrayList<Datastream> getAll() {
+    return new MultiOnlineLink<Datastream>("/Datastreams", true).get(this);
+}
+\end{lstlisting}
+\textbf{Ungetestet: 1 Zeile 1 Mutant}
+\\
+Die Funktion getAll für Datastreams soll alle Datastreams aus der Datenbank zu laden.
+Aufgrund der Menge der in der Datenbank vorhandenen Datastream-Objekte wäre ein Test der Funktionalität hierbei nicht effizient möglich.
+Daher wurde hier auf einen Test verzichtet.
+
+\paragraph{ObservationController}
+\begin{lstlisting}[style=customjava]
+@Override
+public ArrayList<Observation> getAll() {
+    return new MultiOnlineLink<Observation>("/Observations", true).get(this);
+}
+\end{lstlisting}
+\textbf{Ungetestet: 1 Zeile 1 Mutant}
+\\
+Beim ObservationController tritt ebenfalls das Problem der getAll-Funktion auf.
+Auch hier wurde aufgrund der Menge an Observations kein Test geschrieben.
+
+\begin{lstlisting}[style=customjava]
+try {
+    es.awaitTermination(30, TimeUnit.SECONDS);
+} catch (InterruptedException e) {
+    throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+}
+\end{lstlisting}
+\textbf{Ungetestet: 1 Zeile}
+\\
+Eine Version der getAll-Funktion mit Parametern im ObservationController verwendet Multithreading, um die Laufzeit der Operation zu verbessern, da diese oft aufgerufen wird und verhältnismäßig zeitintensiv ist.
+Für den Fall das ein Thread erheblich gestört wird hier ein Timeout von 30 Sekunden gesetzt. Im Falle eines Timeouts wird ein serverinterner Fehler von Spring ausgelöst.
+Die Fehlerauslösung wird nicht von den testfällen abgedeckt.
+
+\paragraph{DefaultInterpolation}
+\begin{lstlisting}[style=customjava]
+bsi.setLengthScale(0.02);
+bsi.setMinObservationCount(0);
+double invSqrt2 = 1 / Math.sqrt(2);
+double maxObservationDistance = invSqrt2 * Math.max(Math.abs(trans.transformX(1) - trans.transformX(0)), Math.abs(trans.transformY(1) - trans.transformY(0)));
+bsi.setMaxObservationDistance(maxObservationDistance);
+bsi.setNoData(-99999);
+bsi.setPassCount(1);
+\end{lstlisting}
+\textbf{Ungetestet: 4 Mutant}
+\\
+Pitest prüft bei Aufrufen von Funktionen ohne Rückgabewert ob ein Entfernen der Funktionsaufrufe zu Fehlern führt.
+Bei 4 der Konfigurationsaufrufe an die Interpolations-Bibliothek wird dieser Mutant nicht abgedeckt.
+Um die Aufrufe zu testen benötigt man Powermock\footnote{Siehe \url{https://de.wikipedia.org/wiki/PowerMock}} um den Konstruktor der Interpolationsklasse zu mocken, jedoch ist Powermock noch nicht mit Junit 5 kompatibel.
+
+\paragraph{GridTransform}
+\begin{lstlisting}[style=customjava]
+public double transformX(int i) {
+    if (i >= xcoord - 1) {
+        return env.getMaxX();
+    }
+    return env.getMinX() + i * dx;
+}
+\end{lstlisting}
+\textbf{Ungetestet: 2 Mutant}
+\\
+In der Klasse GridTransform sind 2 Mutanten ungetestet.
+Hierbei Handelt es sich um den Mutanten, der \textit{if (i >= xcoord - 1)} zu \textit{if (i > xcoord - 1)} verändert.
+Dieser Mutant kann nicht getestet werden, da der Effekt durch das zweite return-Statement aufgehoben wird.
+Der selbe Mutant kommt ebenfalls in der Funktion \textit{public double transformY(int j)} vor
+
+\paragraph{NearestNeighborInterpolation}
+\mbox{}\\
+\textbf{Ungetestet: 1 Zeile 6 Mutant}
+\\
+Zum Teil können diese Nicht getestet werden, zum Teil wurden aber auch keine weiteren Tests mehr geschrieben, da die NearestNeighborInterpolation nichtmehr aktiv verwendet wird.

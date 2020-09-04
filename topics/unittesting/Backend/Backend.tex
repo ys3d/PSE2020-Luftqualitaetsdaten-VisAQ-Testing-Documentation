@@ -1,0 +1,17 @@
+\subsection{Backend}
+Im Backend werden JUnit\footnote{\url{https://junit.org/}} Tests verwendet. Es werden hierbei Tests für die JUnit Version 5 geschrieben.
+Um die Qualität und die Code-Abdeckung der Testfälle zu beurteilen, wird das System Pitest\footnote{\url{https://pitest.org/}} verwendet.
+Pitest führt Mutation Testing\footnote{\url{https://en.wikipedia.org/wiki/Mutation_testing}} durch.
+Bei dieser Methode werden Testfälle generiert, indem der Programmcode an je einer Stelle pro Durchlauf verändert wird.
+Nun sollte mindestens einer der Testfälle fehlschlagen.
+Ist dies nicht der Fall, so wurde die veränderte Codezeile nicht hinreichend genau getestet.
+Allerdings können im Allgemeinen nicht alle Mutanten abgefangen werden.
+Zusätzlich generiert Pitest einen umfangreichen Testbericht und erfasst auch die reine Zeilenüberdeckung der Tests.
+
+Bereits in der Implementierungsphase wurde ein großer Teil der Testfälle erstellt.
+Verbesserungen im Programmcode und teilweise Ungenauigkeiten in den Tests haben zu den Erweiterungen in den Testfällen geführt.
+
+Die Überdeckungsergebnisse des finalen Teststandes können unter \url{ackendtest2.visaq.de} abgerufen werden.
+Im Folgenden sollen die Ergbnisse und Methoden kurz erläutert werden
+
+\input{topics/unittesting/Backend/Untestet.tex}
